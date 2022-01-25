@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
     
 const ProductView = (props) => {
+
+
     const [product, setProduct] = useState({})
+    ///// getting id from url \\\\\ 
     const { id } = useParams();
     
     useEffect(() => {
@@ -17,6 +20,9 @@ const ProductView = (props) => {
             <h4>Title: {product.title}</h4>
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
+            <Link to={"/products/" + id + "/edit"}>
+                Edit
+            </Link>
         </div>
     )
 }

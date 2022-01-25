@@ -5,20 +5,22 @@ import axios from 'axios';
 
 const Main = (props) => {
 
+    ///// products is an array of products \\\\\
+    ///// loaded is set to true when axios request is fulfilled \\\\\ 
     const [products, setProducts] = useState([])
     const [loaded, setLoaded] = useState(false)
-    // const [ message, setMessage ] = useState("Loading...")
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/products")
             .then(res => {
                 setProducts(res.data)
-                console.log(res.data)
                 setLoaded(true)
             })
             .catch(err => console.log(err))
     }, []);
 
+
+    ///// if "loaded" is true, render ProductList, otherwise render "loading..." \\\\\
     return (
         <div>
             <ProductForm />
