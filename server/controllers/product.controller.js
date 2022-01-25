@@ -44,6 +44,12 @@ module.exports.updateProduct = (req, res) => {
     Product.findOneAndUpdate({_id:req.params.id} , req.body,{new: true})
         .then(updatedProduct => res.json(updatedProduct))
         .catch(err => res.json({ message: "Error! no product for you!", error: err }));
-};
+}
 
         ///// DELETE \\\\\
+
+module.exports.deleteProduct = (req, res) => {
+    Product.findByIdAndDelete(req.params.id)
+    .then(delProduct => res.json(delProduct))
+    .catch(err => res.json({ message: "Error! no product for you!", error: err }));
+}

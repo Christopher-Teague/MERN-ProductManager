@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Main from './views/Main';
 import ProductView from './views/ProductView';
-import './App.css';
 import ProductUpdate from './views/ProductUpdate';
+import './App.css';
 
 function App() {
   return (

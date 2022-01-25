@@ -19,6 +19,9 @@ const Main = (props) => {
             .catch(err => console.log(err))
     }, []);
 
+    const removeFromDom = (id) => {
+        setProducts(products.filter(product => product._id != id));
+    }
 
     ///// if "loaded" is true, render ProductList, otherwise render "loading..." \\\\\
     return (
@@ -26,7 +29,7 @@ const Main = (props) => {
             <ProductForm />
             <hr />
             {loaded ?
-                <ProductList products={products} /> :
+                <ProductList products={products} removeFromDom={ removeFromDom } /> :
                 <p>loading...</p>
             }
         </div>
