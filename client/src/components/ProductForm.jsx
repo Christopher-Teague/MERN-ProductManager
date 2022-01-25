@@ -4,7 +4,7 @@ import axios from 'axios';
 export default () => {
     ///// set product fields through useState \\\\\
     const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
 
     const onSubmitHandler = (e) => {
@@ -20,13 +20,13 @@ export default () => {
     return (
         <form onSubmit={onSubmitHandler}>
             <label>Title</label>
-            <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+            <input type="text" onChange={e => setTitle(e.target.value)} value={title} />
             <br/>
             <label>Price</label>
-            <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} />
+            <input type="number" onChange={e => setPrice(e.target.value)} value={price} />
             <br/>
             <label>Description</label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
+            <input type="text" onChange={e => setDescription(e.target.value)} value={description} />
             <br/>
             <button>Submit</button>
         </form>
